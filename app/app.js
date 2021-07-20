@@ -4,10 +4,10 @@ const app = express();
 
 const PORT = 3000;
 // 라우팅
-const home = require('./routes/home')
+const home = require('./src/routes/home');
 
 // 앱 세팅
-app.set("views", "./views"); // view setting
+app.set("views", "./src/views"); // view setting
 app.set("view engine", "ejs"); //ejs사용하려면 npm i ejs --save 해줘야 사용가능
 
 
