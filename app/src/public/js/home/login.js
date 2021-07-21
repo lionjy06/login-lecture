@@ -20,5 +20,7 @@ function login(){
       "Content-type":"application/json" //headers는 클라이언트가 응답받고자 하는 데이터 타입을 정할수 있는데 "content-type"을 key로 했을때 text/html, image/png(jpg) 또는 위와 같은 application/json등 을 지정 할 수 있다.
     },
     body: JSON.stringify(req) //Json.stringify(object) => Json형태의 object를 string형태로 변환
-  }) //fetch설정시 어느 경로에서 데이터를 서버와 주고 받을지 정해줘야한다.
+  })
+  .then((res) => res.json())
+  .then(console.log); //fetch설정시 어느 경로에서 데이터를 서버와 주고 받을지 정해줘야한다.
 };
