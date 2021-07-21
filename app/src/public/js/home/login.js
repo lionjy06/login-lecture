@@ -22,5 +22,19 @@ function login(){
     body: JSON.stringify(req) //Json.stringify(object) => Json형태의 object를 string형태로 변환
   })
   .then((res) => res.json())
-  .then(console.log); //fetch설정시 어느 경로에서 데이터를 서버와 주고 받을지 정해줘야한다.
+  .then((res)=>{
+    if(res.success){
+      location.href = '/';
+    } else{
+      alert(res.msg);
+    }
+  })
+  .catch((err)=>{
+    console.error(new Error("로그인중 에러발생"));
+  });
 };
+
+// fetch('데이터와 서버가 통신할 경로',{})
+
+// fetch를 통해 응답받고자 하는 형식과 내용을 서버에 전달하고 .then을 통해 응답 내용을 json 형식으로 전달한다.
+// 현재 로그인 기능을 만들고 있으므로 id와 pwd가 맞는지 비교하고 맞으면 true값을 틀리면 false와 함께 "로그인 실패" 라는 메시지를 전달한다.
